@@ -1,0 +1,14 @@
+1.login
+2.Jika uname dan pass cocok maka lanjut
+3.dashboard
+4.pilih barang
+5.sistem akan menampilkan popup modal detail barang
+6.user bisa menambah atau mengurangi jumlah item_barang
+7.submit
+8.barang yang dipilih akan tersimpan di keranjang
+9.apakah user ingin menambah barang lainnya?
+10.jika iya maka akan di redirect ke dashboard
+11.jika tidak maka akan masuk ke form pembayaran
+12. sistem akan mengecek apakah pembelian dan pembayaran berhasil
+13.jika tidak maka akan masuk ke no.11
+14.jika iya maka sistem akan menampilkan pop-up modal "pembayaran berhasil dan pesanan akan segera diproses"  
