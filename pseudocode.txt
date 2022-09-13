@@ -1,0 +1,76 @@
+//START PROGRAM
+FUNCTION login()
+    PRINT "halaman login"
+    WHILE TRUE:
+        uname     = INPUT "masukkan uname"
+        password  = INPUT "masukkan pass"
+        FOREACH db_customer AS data:
+            IF data['uname'] == uname & data['pass'] == password :
+                BREAK
+            ELSE:
+                login()
+        END FOREACH
+    END WHILE
+END FUNCTION
+
+
+FUNCTION dashboard()
+    PRINT "halaman dasboard"
+    barang = INPUT "masukkan nama barang yg ingin dipilih"
+    modal = ""
+    FOREACH db_barang AS data:
+        IF data['name'] == barang:
+            modal = data      
+    END FOREACH
+END FUNCTION
+
+
+
+FUNCTION barang()
+    item_barang = 0
+    WHILE TRUE:
+        PRINT POPUP modal
+        IF klikButtonBack():
+            modal = ""
+            BREAK  
+
+        ELSE:
+            IF klikButtonPlus():
+                PRINT "data berhasil ditambah"
+                item_barang = item_barang + 1
+                tanya_lagi  = INPUT "ingin tambah lagi?"
+                IF tanya_lagi == "yes":
+                    IF item_barang >= 0:
+                        CONTINUE
+                    ELSE:
+                        BREAK
+                IF tanya_lagi == "no"
+                    db_barang.save()
+                    keranjang()
+
+            IF klikButtonMinus():
+                IF item_barang >= 0:
+                    CONTINUE
+                ELSE:
+                    BREAK
+                    dashboard()
+END FUNCTION
+
+
+FUNCTION keranjang()
+    tanya = INPUT "ingin tambah barang lainnya?"
+    IF tanya == "yes":
+        barang()
+    ELSE:
+        WHILE TRUE:
+            form = INPUT "mengisi form pembayaran"
+            hasil = klikButtonBayar()
+            IF hasil == TRUE:
+                PRINT "pembayaran berhasil dan pesanan akan segera diproses"
+                BREAK
+                END PROGRAM
+            ELSE:
+                CONTINUE
+        END WHILE
+        
+END FUNCTION 
